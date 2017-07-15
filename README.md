@@ -2,11 +2,13 @@
 
 I am practicing how to create my own video game.
 
+# Assignments
+
+01 - Flashcards
+  > Make a flash card program!
+
 # Homework
 
-## Section 1
-
-- Learn Python the Hard Way (chapter 0-5)
 
 # Resources
 
