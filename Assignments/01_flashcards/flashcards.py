@@ -1,7 +1,15 @@
 # Flashcard Model
-card={"question":"dog",
+cards=[
+{"question":"dog",
+"answers":["an animal","a rock"],
+"correct_answer": 1},
+{"question":"cat",
+"answers":["an animal","a rock"],
+"correct_answer": 1},
+{"question":"mouse",
 "answers":["an animal","a rock"],
 "correct_answer": 1}
+]
 
 # Flashcard View
 def show_card(card):
