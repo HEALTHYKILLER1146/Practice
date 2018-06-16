@@ -19,11 +19,10 @@ class Player:
 
 
     def is_busted(self):
-        if self.score > 21:
+        if self.score >= 22:
             print("you busted")
             self.playing = False
         else:
-            print(self.score)
             print("you are still in the game")
 
 
@@ -37,6 +36,7 @@ class Player:
 
 class Dealer:
     def __init__(self):
+        self.turns = 0
         self.deck = Deck()
         self.player = Player()
         self.hand = []
@@ -44,11 +44,10 @@ class Dealer:
         self.playing = True
 
     def is_busted(self):
-        if self.score > 21:
+        if self.score >= 22:
             print("dealer busted")
             self.playing = False
         else:
-            print(self.score)
             print("dealer is still in the game")
 
     def player_busted(self):
@@ -57,10 +56,30 @@ class Dealer:
 
     def play(self):
         while self.playing:
+            self.turns += 1
             if self.score < 15:
                 self.draw_card()
-            if self.player.score < 15:
-                self.give_card()
+            self.compare_scores()
+            self.player_choice()
+            
+    def player_choice(self):
+        answer = raw_input("hit? y/n ")
+        if str(answer) == "y":
+            self.give_card()
+        elif str(answer) == "n":
+            if self.turns > 5:
+                print("game over house wins")
+                self.player.playing = False
+                self.player_busted()
+            else:
+                print("game continues")
+        else:
+            print("that is not an option")
+            self.player_choice()
+
+    def compare_scores(self):
+        print('TURN;')
+        print(self.turns)
         print("Dealer score:")
         print(self.score)
         print("Player score:")
