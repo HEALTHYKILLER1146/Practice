@@ -1,6 +1,5 @@
 import random
 #1.deck
-#
 class Deck:
     def __init__(self):
         self.deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]*4
@@ -35,7 +34,7 @@ class Player:
 
     def show_hand(self):
         print(self.hand)
-        
+
 class Dealer:
     def __init__(self):
         self.deck = Deck()
@@ -55,7 +54,7 @@ class Dealer:
     def player_busted(self):
         if self.player.playing == False:
             self.playing = False
-    
+
     def play(self):
         while self.playing:
             if self.score < 15:
@@ -72,11 +71,12 @@ class Dealer:
         self.hand.append(card)
         self.score += card
         self.is_busted()
-        
+
     def give_card(self):
         card = self.deck.deal_card()
         self.player.draw(card)
         self.player_busted()
+
 #3.init
 dealer = Dealer()
 dealer.play()
